@@ -19,17 +19,21 @@ void setcolor(unsigned short color)
 struct player
 {
     string namaPlayer;
-    int duitPlayer;
+    int duit;
     string genderPlayer;
    	
 };
 
 
 int main() {
-    int pil, noSatu, noDua, noTiga;
-	int duit = 2000;
-	int bet;
+   	int noSatu=0;
+	int noDua=0;
+	int noTiga=0;
+	
+	int duit = 500;
+	int bet = 0;
     
+    int opsi;
     
     int panjangPeta = 20; // x
     int lebarPeta = 16; // y
@@ -40,22 +44,22 @@ int main() {
     cout << "tekan arah untuk memulai permainan";
     
     int peta[lebarPeta][panjangPeta] = {
-        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,1,1,1,8,1,1,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,1,1,8,6,8,1,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,1,8,6,6,6,8,1,1,1,1},
-        {1,1,5,4,4,1,1,1,1,1,8,6,6,6,6,6,8,1,1,1},
-        {5,1,5,4,4,1,1,1,1,8,5,5,6,6,6,5,5,8,1,1},
-        {4,4,4,4,4,4,4,1,1,1,6,5,5,5,5,5,6,1,1,1},
-        {4,4,4,4,4,4,4,1,1,1,6,5,5,5,5,5,6,1,1,1},
-        {1,1,1,1,1,4,4,1,1,1,6,5,4,4,4,5,6,1,1,1},
-        {1,1,1,1,1,4,4,1,1,1,1,1,4,4,4,1,1,1,1,1},
-        {1,1,1,1,1,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1},
-        {1,1,1,1,1,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1},
-        {1,1,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1,1},
-        {1,1,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,1,1,8,1,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,1,8,6,8,1,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,1,8,6,6,6,8,1,1,1,1},
+	        {1,1,5,4,4,1,1,1,1,1,8,6,6,6,6,6,8,1,1,1},
+	        {5,1,5,4,4,1,1,1,1,8,5,5,6,6,6,5,5,8,1,1},
+	        {4,4,4,4,4,4,4,1,1,1,6,5,5,5,5,5,6,1,1,1},
+	        {4,4,4,4,4,4,4,1,1,1,6,5,5,5,5,5,6,1,1,1},
+	        {1,4,1,1,1,4,4,1,1,1,6,5,4,4,4,5,6,1,1,1},
+	        {1,4,1,1,1,4,4,1,1,1,1,1,4,4,4,1,1,1,1,1},
+	        {1,4,1,1,1,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1},
+	        {1,4,1,1,1,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1},
+	        {1,4,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1,1},
+	        {1,4,1,1,1,1,1,1,1,4,4,1,1,1,1,1,1,1,1,1},
     };
     
     
@@ -107,9 +111,9 @@ int main() {
         } else if (input == 'i') {
         	cout << "ABOUT ME!" << endl;
         	cout << "=======================" << endl;
-        	cout << "=Player Name : Montel =" << endl;
-			cout << "=Rp.2000              =" << endl;
-			cout << "=Gender : Cowok       =" << endl;
+        	cout << "=Nama Pemain : Montel =" << endl;
+			cout << "=Duit Ku:Rp."<<duit<<"       ="<<endl;
+			cout << "=Jenis : Ubi          =" << endl;
 			cout << "=======================" << endl;
 			continue;
         	}
@@ -151,49 +155,73 @@ int main() {
                 	setcolor(9);
                     cout << peta[y][x] << " ";
                     setcolor(7);
-                }
-                if(posisiKarakterX==13 && posisiKarakterY==10){
-                	
-                	while(true){
-					system ("cls");
-					noSatu = (rand() % 9) + 1;
-					noDua = (rand() % 9) + 1;
-					noTiga = (rand() % 9) + 1;
+                }	
+				if(posisiKarakterX==1 && posisiKarakterY==15){				
+					exit(0);
+					
+				}                				
+				if(posisiKarakterX==13 && posisiKarakterY==10){
+                
+					while(true){
+		
+		
 					cout << "=========================================" << endl;
-				    cout << "=========================================" << endl;
-				    cout << "==                                     ==" << endl;
-				    cout << "==           ODIN IN VALHALLA          ==" << endl;
-				    cout << "==                                     ==" << endl;
-				    cout << "=========================================" << endl;
-				    cout << "=========================================" << endl;
-				    cout << "\n";
-									
-					cout<<"MARI HABISKAN UANGMU! HAHA"<<endl;
+					cout << "=========================================" << endl;
+					cout << "==                                     ==" << endl;
+					cout << "==           ODIN IN VALHALLA          ==" << endl;
+					cout << "==                                     ==" << endl;
+					cout << "=========================================" << endl;
+					cout << "=========================================" << endl;
+					cout << "\n";
+					
+					cout<<"DUIT MU : RP. "<<duit<<endl;									
+					cout<<"MARI HABISKAN DUITMU! HAHA"<<endl;
 					cout<<"=========================="<<endl;				
-					cout<<"Duit : "<<duit<<endl;
-					cout<<"Angka Pertama : "<<noSatu<<endl;
-					cout<<"==============="<<endl;
-					cout<<"Angka Kedua :  "<<noDua<<endl;
-					cout<<"==============="<<endl;
-					cout<<"Angka Ketiga : "<<noTiga<<endl;
-					cout<<"==============="<<endl;
+					
+					cout<<"==================="<<endl;
+					cout<<"Angka Pertama : "<<"|"<<noSatu<<"|"<<endl;
+					cout<<"==================="<<endl;
+					cout<<"Angka Kedua :  "<<" |"<<noDua<<"|"<<endl;
+					cout<<"==================="<<endl;
+					cout<<"Angka Ketiga : "<<" |"<<noTiga<<"|"<<endl;
+					cout<<"==================="<<endl;
 					cout<<"Bet : ";
 					cin>>bet;
 					
+					noSatu = rand() %9 + 1;
+					noDua = rand() %9 + 1;
+					noTiga = rand() %9 + 1;
 					
+					system("cls");
 					if(duit >= bet){
-					if(noSatu != noDua && noTiga){
-						duit -= bet;
-						}else if(noSatu == noDua && noTiga){
-						duit += bet*2;}
-						
-					}else if(duit == 0){
-						cout<<"Cabut dah lu"<<endl;
-						continue;				
+						if(noSatu != noDua && noTiga && duit > bet - bet){
+							duit -= bet;
+						}
+						else if(noSatu == noDua && noTiga && duit >= bet){
+							duit += bet;
+						}
 					}
+						if(duit==0){
+							cout<<"HAHA Rungkad Shayaaaaaaang~"<<endl;
+							cout<<"==========================="<<endl;
+							cout<<"Sok pilih\n 1.Pulang\n 2.Sama Aja Tapi Sambil Nangis\n"<<endl;
+							cout<<"Pilih :  ";
+							cin>>opsi;
+							if(opsi == 1){
+								cout<<"Sampai Jumpa Lagi!"<<endl;
+								system ("cls");
+								main();
+							}else if(opsi ==2 ){
+								cout<<"YAHAHAHA Kalah Kok Nangis"<<endl;
+								main();
 							}
-                	
+				
+					
+							break;																															
+					}											
+							}	                	                	
 				}
+			
             }
             cout << "\n";
         }
